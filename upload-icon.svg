@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 上传箭头 -->
+    <path d="M32 48V16" stroke="#007AFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M20 28L32 16L44 28" stroke="#007AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 底部线条 -->
+    <path d="M16 48H48" stroke="#007AFF" stroke-width="4" stroke-linecap="round"/>
+</svg> 

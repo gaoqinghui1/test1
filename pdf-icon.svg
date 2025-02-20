@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 文档外框 -->
+    <path d="M16 8H40L48 16V56H16V8Z" stroke="#007AFF" stroke-width="4" stroke-linejoin="round"/>
+    <!-- 折角 -->
+    <path d="M40 8L40 16H48" stroke="#007AFF" stroke-width="4" stroke-linejoin="round"/>
+    <!-- PDF文字 -->
+    <path d="M24 32H28M36 32H40" stroke="#007AFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M24 40H40" stroke="#007AFF" stroke-width="4" stroke-linecap="round"/>
+</svg> 

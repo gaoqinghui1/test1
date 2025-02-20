@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郜庆辉的小工具站</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 添加 PDF.js 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- 添加 docx.js 库 (ESM版本) -->
+    <script type="module">
+        import { Document, Paragraph, TextRun, Packer } from "https://cdn.jsdelivr.net/npm/docx@8.2.3/+esm";
+        window.docxjs = { Document, Paragraph, TextRun, Packer };
+    </script>
+</head>
+<body>
+    <!-- 顶部标题区域 -->
+    <header class="header">
+        <h1>郜庆辉的小工具站</h1>
+        <p class="subtitle">简单、高效的在线工具集合</p>
+        <div class="tool-count">
+            <span class="count">2</span>
+            <span class="label">个工具</span>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="container">
+        <!-- 功能选择标签页 -->
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="image">图片压缩</button>
+            <button class="tab-button" data-tab="pdf">PDF转WORD</button>
+        </div>
+
+        <!-- 图片压缩模块 -->
+        <div class="tab-content active" id="imageTab">
+            <!-- 上传区域 -->
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" accept="image/png,image/jpeg" hidden>
+                <div class="upload-box">
+                    <img src="upload-icon.svg" alt="上传图标" class="upload-icon">
+                    <p>点击或拖拽图片到此处</p>
+                    <p class="upload-hint">支持 PNG、JPG 格式</p>
+                </div>
+            </div>
+
+            <!-- 预览和控制区域 -->
+            <div class="preview-container" id="previewContainer" style="display: none;">
+                <div class="preview-section">
+                    <div class="preview-box">
+                        <h3>原始图片</h3>
+                        <img id="originalPreview" alt="原始图片预览">
+                        <div class="file-info">
+                            <span>原始大小：</span>
+                            <span id="originalSize">0 KB</span>
+                        </div>
+                    </div>
+                    <div class="preview-box">
+                        <h3>压缩后</h3>
+                        <img id="compressedPreview" alt="压缩后预览">
+                        <div class="file-info">
+                            <span>压缩后大小：</span>
+                            <span id="compressedSize">0 KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 压缩控制区域 -->
+                <div class="control-panel">
+                    <div class="quality-control">
+                        <label for="qualitySlider">压缩质量：<span id="qualityValue">80%</span></label>
+                        <input type="range" id="qualitySlider" min="1" max="100" value="80">
+                    </div>
+                    <button id="downloadBtn" class="download-btn">下载压缩后的图片</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PDF转WORD模块 -->
+        <div class="tab-content" id="pdfTab">
+            <div class="upload-area" id="pdfUploadArea">
+                <input type="file" id="pdfInput" accept="application/pdf" hidden>
+                <div class="upload-box">
+                    <img src="pdf-icon.svg" alt="上传图标" class="upload-icon">
+                    <p>点击或拖拽PDF文件到此处</p>
+                    <p class="upload-hint">支持 PDF 格式</p>
+                </div>
+            </div>
+
+            <!-- PDF转换状态显示 -->
+            <div class="conversion-container" id="conversionContainer" style="display: none;">
+                <div class="file-info-box">
+                    <h3>文件信息</h3>
+                    <div class="file-details">
+                        <p>文件名：<span id="pdfFileName">-</span></p>
+                        <p>文件大小：<span id="pdfFileSize">-</span></p>
+                        <p>页数：<span id="pdfPageCount">-</span></p>
+                    </div>
+                </div>
+
+                <div class="conversion-status">
+                    <div class="progress-bar">
+                        <div class="progress" id="conversionProgress"></div>
+                    </div>
+                    <p class="status-text" id="conversionStatus">准备转换...</p>
+                    <div class="progress-steps">
+                        <div class="step active" id="step1">上传文件</div>
+                        <div class="step" id="step2">解析PDF</div>
+                        <div class="step" id="step3">转换格式</div>
+                        <div class="step" id="step4">生成文档</div>
+                    </div>
+                </div>
+
+                <button id="convertBtn" class="convert-btn">开始转换</button>
+                <button id="downloadWordBtn" class="download-btn" style="display: none;">下载WORD文档</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
